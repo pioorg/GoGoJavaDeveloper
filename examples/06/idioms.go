@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"time"
 )
 
 func fullName(uid int) (string, string, bool) {
@@ -17,7 +16,6 @@ func fullName(uid int) (string, string, bool) {
 }
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
 	uid := rand.Intn(3)
 	fn, ln, ok := fullName(uid)
 	if ok {

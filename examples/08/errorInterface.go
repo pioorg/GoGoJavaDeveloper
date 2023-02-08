@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"math/rand"
-	"time"
 )
 
 type IncorrectUid struct {
@@ -16,7 +15,7 @@ func (e IncorrectUid) Error() string {
 }
 
 func fullName(uid int) (string, string, error) {
-	if uid == 0 {
+	if uid <= 0 {
 		return "", "", IncorrectUid{uid}
 	}
 	if uid == 1 {
@@ -38,7 +37,6 @@ func printError(err error) {
 }
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
 	uid := rand.Intn(3)
 	fn, ln, err := fullName(uid)
 	if err == nil {

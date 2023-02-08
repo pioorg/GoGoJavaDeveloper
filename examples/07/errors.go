@@ -4,11 +4,10 @@ import (
 	"errors"
 	"fmt"
 	"math/rand"
-	"time"
 )
 
 func fullName(uid int) (string, string, error) {
-	if uid == 0 {
+	if uid <= 0 {
 		return "", "", errors.New("incorrect UID")
 	}
 	if uid == 1 {
@@ -21,7 +20,6 @@ func fullName(uid int) (string, string, error) {
 }
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
 	uid := rand.Intn(3)
 	fn, ln, err := fullName(uid)
 	if err == nil {
